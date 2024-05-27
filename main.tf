@@ -70,7 +70,7 @@ resource "aws_subnet" "Public_Subnets" {
 }
 
 #Attaching public route table with public subnets.
-resource "aws_route_table_association" "public_route_table_association" {
+resource "aws_route_table_association" "Public_Route_Table_Association" {
   count          = length(var.public_subnets)
   subnet_id      = aws_subnet.Public_Subnets[count.index].id
   route_table_id = aws_route_table.Public_Route_Table.id
