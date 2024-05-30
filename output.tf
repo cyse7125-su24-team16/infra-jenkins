@@ -25,3 +25,10 @@ output "Igw_Id" {
 output "aws_security_group" {
   value = aws_security_group.Jenkins_Security_Group.id
 }
+
+output "aws_instance" {
+  value = aws_instance.Jenkins_Instance.id
+}
+output "ssh_key_name" {
+  value = aws_key_pair.Jenkins_Key.key_name
+}
