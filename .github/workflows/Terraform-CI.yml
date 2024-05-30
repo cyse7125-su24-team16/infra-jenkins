@@ -1,4 +1,4 @@
-name: 'Terraform-Workflow'
+name: 'Terraform-Format-And-Validate-Workflow'
 
 on:
   pull_request:
