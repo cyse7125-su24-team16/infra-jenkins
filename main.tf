@@ -9,10 +9,11 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
+  region  = var.region
+  profile = "AnushaRoot"
   # access_key = var.aws_access_key
   # secret_key = var.aws_secret_key
-  profile = "AnushaRoot"
+
 }
 
 # Data Source Configuration for Availability Zones.
@@ -153,4 +154,4 @@ resource "aws_key_pair" "Jenkins_Key" {
   key_name   = var.key_name
   public_key = file("~/.ssh/${var.ssh_key_file}")
 }
- 
+
