@@ -22,7 +22,15 @@ jobs:
         terraform init -upgrade
 
     - name: Terraform Format
-      run: terraform fmt
+      run: terraform fmt -check
+
+    - name: Fail if terraform fmt fails
+      if: ${{ steps.setup.outputs.exit-code != 0 }}
+      run: exit 1
 
     - name: Terraform Validate
       run: terraform validate
+
+    - name: Fail if terraform valid fails
+      if: ${{ steps.setup.outputs.exit-code != 0 }}
+      run: exit 1
