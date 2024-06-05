@@ -75,3 +75,17 @@ variable "allocation_id" {
   type        = string
 }
 
+variable "https_ports" {
+  description = "Ingress HTTPS ports"
+  type        = string
+}
+
+variable "http_port" {
+  description = "Ingress HTTP"
+  type        = string
+}
+
+variable "egress_port" {
+  description = "egress_port"
+  type        = string
+}
