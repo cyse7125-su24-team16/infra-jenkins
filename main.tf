@@ -9,10 +9,10 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.region
-  profile = "AnushaRoot"
-  # access_key = var.aws_access_key
-  # secret_key = var.aws_secret_key
+  region = var.region
+  #profile = "AnushaRoot"
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 
 }
 
@@ -96,22 +96,22 @@ resource "aws_security_group" "Jenkins_Security_Group" {
   vpc_id = aws_vpc.VPC.id
 
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.https_ports
+    to_port     = var.https_ports
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    from_port   = 80
-    to_port     = 80
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port   = 0
-    to_port     = 0
+    from_port   = var.egress_port
+    to_port     = var.egress_port
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
