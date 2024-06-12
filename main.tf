@@ -16,6 +16,8 @@ provider "aws" {
 
 }
 
+
+
 # Data Source Configuration for Availability Zones.
 data "aws_availability_zones" "available_zones" {}
 
