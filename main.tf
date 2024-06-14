@@ -145,7 +145,7 @@ resource "aws_instance" "Jenkins_Instance" {
     network_interface_id = aws_network_interface.JenkinsServerNIC.id
     device_index         = 0
   }
-   root_block_device {
+  root_block_device {
     volume_size = 50
     volume_type = "gp2"
   }
