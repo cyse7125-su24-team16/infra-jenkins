@@ -10,7 +10,7 @@ terraform {
 
 provider "aws" {
   region = var.region
-  #profile = "AnushaRoot"
+  # profile = "AnushaRoot"
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 
@@ -144,6 +144,10 @@ resource "aws_instance" "Jenkins_Instance" {
   network_interface {
     network_interface_id = aws_network_interface.JenkinsServerNIC.id
     device_index         = 0
+  }
+   root_block_device {
+    volume_size = 50
+    volume_type = "gp2"
   }
 
   tags = {
